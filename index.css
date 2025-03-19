@@ -13,7 +13,6 @@
 }
 
 body {
-    height: 100vh;
     font-family: 'Iosevka Web', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     background-color: var(--Background);
