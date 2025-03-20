@@ -98,18 +98,22 @@ main h2 {
     align-self: center;
 }
 
+.demos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 .h_iframe {
-    position: relative;
-    padding-top: 56%;
-    margin: 1rem;
+    flex: 1;
+    min-width: 300px; /* Adjust this value based on your needs */
+    margin: 10px;
 }
 
 .h_iframe iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: calc(100% - 2rem);
+    width: 100%;
     height: 100%;
+    aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
 }
 
 
