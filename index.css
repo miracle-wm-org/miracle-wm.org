@@ -94,26 +94,38 @@ main h2 {
     font-weight: bold;
 }
 
-.miracle-video-demo {
-    align-self: center;
-}
-
 .demos {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.featured-demo {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.featured-demo iframe {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.demo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 }
 
 .h_iframe {
-    flex: 1;
-    min-width: 300px; /* Adjust this value based on your needs */
-    margin: 10px;
+    width: 100%;
 }
 
 .h_iframe iframe {
     width: 100%;
     height: 100%;
-    aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+    aspect-ratio: 16 / 9;
 }
 
 
@@ -130,5 +142,21 @@ only screen and (max-width:1440px) {
 
     .content-wrapper {
         width: 90vw !important;
+    }
+
+    .demo-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .demo-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .demo-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
