@@ -23,10 +23,18 @@
                 </a>
             </li>
             <li>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-toggle-icon">🌓</span>
+                </button>
+            </li>
+            <li>
                 <a href="https://github.com/miracle-wm-org/miracle-wm">
-                    <svg width="16" height="16">
-                        <image xlink:href="/assets/github-mark-c791e9551fe4/github-mark/github-mark-white.svg"
+                    <svg width="16" height="16" class="github-icon">
+                        <image class="github-icon-dark" xlink:href="/assets/github-mark-c791e9551fe4/github-mark/github-mark-white.svg"
                             src="/assets/github-mark-c791e9551fe4/github-mark/github-mark-white.png" width="16"
+                            height="16" />
+                        <image class="github-icon-light" xlink:href="/assets/github-mark-c791e9551fe4/github-mark/github-mark.svg"
+                            src="/assets/github-mark-c791e9551fe4/github-mark/github-mark.png" width="16"
                             height="16" />
                     </svg>
                 </a>
@@ -89,6 +97,43 @@
             </ul>
         </div>
     </main>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+        } else if (!systemPrefersDark) {
+            html.setAttribute('data-theme', 'light');
+        } else {
+            html.setAttribute('data-theme', 'dark');
+        }
+        
+        // Toggle theme function
+        function toggleTheme() {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+        
+        // Add event listener to toggle button
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            }
+        });
+    </script>
 
 </body>
 

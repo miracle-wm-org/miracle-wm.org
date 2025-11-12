@@ -1,4 +1,5 @@
 :root {
+    /* Dark mode colors (default) */
     --Background: #282a36;
     --CurrentLine: #44475a;
     --Foreground: #f8f8f2;
@@ -12,11 +13,28 @@
     --Yellow: #f1fa8c;
 }
 
+/* Light mode colors */
+@media (prefers-color-scheme: light) {
+    :root {
+        --Background: #ffffff;
+        --CurrentLine: #e5e5e5;
+        --Foreground: #24292e;
+        --Comment: #6a737d;
+        --Cyan: #0969da;
+        --Green: #28a745;
+        --Orange: #d73a49;
+        --Pink: #e36209;
+        --Purple: #6f42c1;
+        --Red: #d73a49;
+        --Yellow: #f9c513;
+    }
+}
+
 body {
     font-family: 'Iosevka Web', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     background-color: var(--Background);
-    color: #f8f8f2;
+    color: var(--Foreground);
     padding: 0;
     margin: auto;
     display: flex;
@@ -72,6 +90,90 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* GitHub icon handling for different color schemes */
+.github-icon-light {
+    display: none;
+}
+
+.github-icon-dark {
+    display: inline;
+}
+
+@media (prefers-color-scheme: light) {
+    .github-icon-light {
+        display: inline;
+    }
+    
+    .github-icon-dark {
+        display: none;
+    }
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 200ms ease-in-out;
+    color: var(--Foreground);
+}
+
+.theme-toggle:hover {
+    background-color: var(--CurrentLine);
+}
+
+.theme-toggle-icon {
+    display: block;
+}
+
+/* Support for manual theme overrides */
+html[data-theme="light"] {
+    --Background: #ffffff;
+    --CurrentLine: #e5e5e5;
+    --Foreground: #24292e;
+    --Comment: #6a737d;
+    --Cyan: #0969da;
+    --Green: #28a745;
+    --Orange: #d73a49;
+    --Pink: #e36209;
+    --Purple: #6f42c1;
+    --Red: #d73a49;
+    --Yellow: #f9c513;
+}
+
+html[data-theme="dark"] {
+    --Background: #282a36;
+    --CurrentLine: #44475a;
+    --Foreground: #f8f8f2;
+    --Comment: #6272a4;
+    --Cyan: #8be9fd;
+    --Green: #50fa7b;
+    --Orange: #ffb86c;
+    --Pink: #ff79c6;
+    --Purple: #bd93f9;
+    --Red: #ff5555;
+    --Yellow: #f1fa8c;
+}
+
+html[data-theme="light"] .github-icon-light {
+    display: inline;
+}
+
+html[data-theme="light"] .github-icon-dark {
+    display: none;
+}
+
+html[data-theme="dark"] .github-icon-light {
+    display: none;
+}
+
+html[data-theme="dark"] .github-icon-dark {
+    display: inline;
 }
 
 main {
