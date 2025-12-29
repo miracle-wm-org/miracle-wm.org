@@ -4,17 +4,21 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/fonts/PkgWebFont-Iosevka-31.6.0/Iosevka.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/index.css">
     <title>miracle-wm</title>
-    <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
     <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
     <meta name="description" content="miracle-wm, a tiling window manager built on mir">
 </head>
 
 <body>
     <header>
-        <a class="miracle-wm-logo" href="/">miracle-wm</a>
+        <a class="miracle-wm-logo" href="/">
+            <img src="https://raw.githubusercontent.com/miracle-wm-org/miracle-wm/refs/heads/develop/icons/clearStars/clearStars.svg" alt="miracle-wm mascot">
+            miracle
+        </a>
 
         <ul class="miracle-wm-header-list">
             <li>
@@ -72,14 +76,14 @@
                         </div>
                     </div>
                     <div class="hero-mascot">
-                        <img src="/assets/mascot.png" alt="miracle-wm mascot" class="mascot-image">
+                        <img src="https://raw.githubusercontent.com/miracle-wm-org/miracle-wm/refs/heads/develop/icons/clearStars/clearStars.svg" alt="miracle-wm mascot" class="mascot-image">
                     </div>
                 </div>
             </section>
 
             <!-- Goals Section -->
             <section class="goals-section">
-                <h2>What makes miracle special?</h2>
+                <h2>Features</h2>
                 <div class="goals-grid">
                     <div class="goal-card">
                         <div class="goal-icon">🔗</div>
@@ -89,51 +93,43 @@
                     <div class="goal-card">
                         <div class="goal-icon">📸</div>
                         <h3>User Friendly</h3>
-                        <p>A flashy tiling window manager that <em>absolutely anyone</em> can use, inspired by <a href="https://hyprland.org/">hyprland</a></p>
+                        <p>A flashy tiling window manager that <em>absolutely anyone</em> can use</p>
                     </div>
                     <div class="goal-card">
                         <div class="goal-icon">🚩</div>
                         <h3>Mir Showcase</h3>
                         <p>The flagship example of a full-featured window manager built on top of Mir</p>
                     </div>
-                    <div class="goal-card">
-                        <div class="goal-icon">🫂</div>
-                        <h3>Welcoming Community</h3>
-                        <p>Foster a welcoming and friendly community for users and contributors</p>
+                </div>
+            </section>
+
+            <section class="demos-section">
+                <h2>Demos</h2>
+                <div class="demos">
+                    <div class="featured-demo">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/gWfqACQWRBw?si=QY2BeJ8C8LrOgJNB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="demo-grid">
+                        <div class="h_iframe">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/l5ljNtbOaf0?si=VFwnbimiYCmWSpXw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="h_iframe">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/KwOp8J09Zdw?si=IznESNdDj5NZrJrq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="h_iframe">
+                            <iframe width="560" height="315"
+                                src="https://www.youtube.com/embed/hiRscROvZ1E?si=4haoYVi8KGRStxNf" title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <h2>Demos</h2>
-            <div class="demos">
-                <div class="featured-demo">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/gWfqACQWRBw?si=QY2BeJ8C8LrOgJNB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="demo-grid">
-                    <div class="h_iframe">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/l5ljNtbOaf0?si=VFwnbimiYCmWSpXw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <div class="h_iframe">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/KwOp8J09Zdw?si=IznESNdDj5NZrJrq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <div class="h_iframe">
-                        <iframe width="560" height="315"
-                            src="https://www.youtube.com/embed/hiRscROvZ1E?si=4haoYVi8KGRStxNf" title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-
             <section class="links-section">
-                <h2>Get Started</h2>
+                <h2>Links</h2>
                 <div class="links-grid">
-                    <a href="https://github.com/miracle-wm-org/miracle-wm" class="link-card">
-                        <div class="link-icon">💻</div>
-                        <h3>Source Code</h3>
-                        <p>View the code and contribute on GitHub</p>
-                    </a>
                     <a href="https://src.fedoraproject.org/rpms/miracle-wm" class="link-card">
                         <div class="link-icon">🎩</div>
                         <h3>Fedora Package</h3>

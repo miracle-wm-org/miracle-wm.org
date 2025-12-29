@@ -49,7 +49,7 @@
 }
 
 body {
-    font-family: 'Iosevka Web', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 18px;
     line-height: 1.6;
     background-color: var(--Background);
@@ -88,7 +88,7 @@ header {
 }
 
 .miracle-wm-logo:hover {
-    color: var(--Green);
+    color: var(--Pink);
 }
 
 .miracle-wm-header-list {
@@ -239,7 +239,7 @@ main {
     display: flex;
     align-items: center;
     gap: 4rem;
-    min-height: 60vh;
+    min-height: 70vh;
 }
 
 .hero-text {
@@ -261,6 +261,16 @@ main {
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(189, 147, 249, 0.2);
     transition: transform 0.3s ease;
+}
+
+/* Header mascot image that scales with text */
+.miracle-wm-logo > img {
+    max-width: 1.5em;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 0.25em;
+    vertical-align: middle;
+    margin-right: 0.25em;
 }
 
 .mascot-image:hover {
@@ -391,6 +401,18 @@ main {
     color: var(--Comment);
     line-height: 1.5;
     margin: 0;
+}
+
+/* Demos Section */
+.demos-section {
+    margin: 4rem 0;
+}
+
+.demos-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--Purple);
+    margin-bottom: 3rem;
 }
 
 /* Links Section */
