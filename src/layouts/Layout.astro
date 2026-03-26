@@ -18,22 +18,20 @@ const {
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="utf-8" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-            rel="stylesheet"
-        />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
         <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <meta name="description" content={description} />
         <title>{title}</title>
     </head>
     <body>
-        <Header />
+        <div class="header-band">
+            <Header />
+        </div>
         <main>
-            <div class="content-wrapper">
-                <slot />
-            </div>
+            <slot />
         </main>
 
         <script>
@@ -53,11 +51,26 @@ const {
                 html.setAttribute('data-theme', 'dark');
             }
 
+            function updateThemeIcon(theme: string) {
+                const iconDark = document.getElementById('theme-icon-dark');
+                const iconLight = document.getElementById('theme-icon-light');
+                if (theme === 'dark') {
+                    iconDark?.style.setProperty('display', 'inline-block');
+                    iconLight?.style.setProperty('display', 'none');
+                } else {
+                    iconDark?.style.setProperty('display', 'none');
+                    iconLight?.style.setProperty('display', 'inline-block');
+                }
+            }
+
+            updateThemeIcon(html.getAttribute('data-theme') ?? 'dark');
+
             function toggleTheme() {
                 const currentTheme = html.getAttribute('data-theme');
                 const newTheme = currentTheme === 'light' ? 'dark' : 'light';
                 html.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
             }
 
             themeToggle?.addEventListener('click', toggleTheme);
@@ -66,10 +79,9 @@ const {
                 .matchMedia('(prefers-color-scheme: dark)')
                 .addEventListener('change', (e) => {
                     if (!localStorage.getItem('theme')) {
-                        html.setAttribute(
-                            'data-theme',
-                            e.matches ? 'dark' : 'light'
-                        );
+                        const newTheme = e.matches ? 'dark' : 'light';
+                        html.setAttribute('data-theme', newTheme);
+                        updateThemeIcon(newTheme);
                     }
                 });
         </script>

@@ -29,6 +29,10 @@
         --Yellow: #ffd33d;
     }
 
+    body {
+        background: linear-gradient(160deg, #f0f1f4 0%, #ffffff 50%, #f5f6f8 100%);
+    }
+
     .goal-card, .link-card {
         background: linear-gradient(135deg, rgba(225, 228, 232, 0.4), rgba(225, 228, 232, 0.1));
         border-color: var(--CurrentLine);
@@ -49,10 +53,10 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 18px;
     line-height: 1.6;
-    background-color: var(--Background);
+    background: linear-gradient(160deg, #2a2c3a 0%, #282a36 50%, #252731 100%);
     color: var(--Foreground);
     padding: 0;
     margin: auto;
@@ -74,7 +78,29 @@ a:hover {
     color: var(--Foreground);
     text-decoration: none;
     font-size: 2rem;
+    font-family: 'Berkshire Swash', serif;
     transition: color 200ms ease-in-out;
+}
+
+.header-band {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: rgba(68, 71, 90, 0.35);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+html[data-theme="light"] .header-band {
+    background: rgba(225, 228, 232, 0.8);
+}
+
+@media (prefers-color-scheme: light) {
+    .header-band {
+        background: rgba(225, 228, 232, 0.8);
+    }
 }
 
 header {
@@ -83,8 +109,9 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--CurrentLine);
-    margin-bottom: 1rem;
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0.5rem 0;
 }
 
 .miracle-wm-logo:hover {
@@ -103,31 +130,91 @@ header {
     color: var(--Foreground);
     text-decoration: none;
     font-size: 1rem;
-    transition: color 200ms ease-in-out;
+    transition: color 200ms ease-in-out, background-color 200ms ease-in-out, transform 150ms ease-in-out;
 }
 
 .miracle-wm-header-list li a {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    gap: 0.4rem;
 }
 
-/* GitHub icon handling for different color schemes */
-.github-icon-light {
+.header-link {
+    padding: 0.15rem 0.6rem;
+    border-bottom: 1px solid transparent;
+}
+
+.header-link:hover {
+    color: var(--Cyan) !important;
+    border-color: rgba(139, 233, 253, 0.25);
+}
+
+.header-link i {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 200ms ease-in-out;
+}
+
+.header-link:hover i {
+    opacity: 1;
+}
+
+html[data-theme="light"] .header-link:hover {
+    color: var(--Cyan) !important;
+    background-color: rgba(3, 102, 214, 0.08);
+    border-color: rgba(3, 102, 214, 0.25);
+}
+
+/* Hamburger button */
+.hamburger {
     display: none;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--Foreground);
+    padding: 0.25rem 0.5rem;
+    transition: color 200ms ease-in-out;
 }
 
-.github-icon-dark {
-    display: inline;
+.hamburger:hover {
+    color: var(--Cyan);
 }
 
-@media (prefers-color-scheme: light) {
-    .github-icon-light {
-        display: inline;
+@media (max-width: 768px) {
+    header {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        flex-wrap: wrap;
+        position: relative;
     }
-    
-    .github-icon-dark {
+
+    .hamburger {
+        display: block;
+    }
+
+    .miracle-wm-header-list {
         display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+        padding: 0.5rem 0 0.75rem;
+    }
+
+    .miracle-wm-header-list.open {
+        display: flex;
+    }
+
+    .miracle-wm-header-list li {
+        width: 100%;
+    }
+
+    .miracle-wm-header-list li a,
+    .miracle-wm-header-list li .theme-toggle {
+        width: 100%;
+        justify-content: flex-start;
     }
 }
 
@@ -135,20 +222,38 @@ header {
 .theme-toggle {
     background: none;
     border: none;
+    border-bottom: 1px solid transparent;
     font-size: 1rem;
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    transition: background-color 200ms ease-in-out;
+    padding: 0.15rem 0.6rem;
+    transition: color 200ms ease-in-out, border-color 200ms ease-in-out, transform 150ms ease-in-out;
     color: var(--Foreground);
 }
 
 .theme-toggle:hover {
-    background-color: var(--CurrentLine);
+    color: var(--Cyan);
 }
 
-.theme-toggle-icon {
-    display: block;
+html[data-theme="light"] .theme-toggle:hover {
+    color: var(--Cyan);
+}
+
+.theme-toggle-label {
+    font-size: 1rem;
+}
+
+/* Both icons hidden by default; JS shows the correct one */
+#theme-icon-dark,
+#theme-icon-light {
+    display: none;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 200ms ease-in-out;
+}
+
+.theme-toggle:hover #theme-icon-dark,
+.theme-toggle:hover #theme-icon-light {
+    opacity: 1;
 }
 
 /* Support for manual theme overrides */
@@ -164,6 +269,10 @@ html[data-theme="light"] {
     --Purple: #6f42c1;
     --Red: #d73a49;
     --Yellow: #ffd33d;
+}
+
+html[data-theme="light"] body {
+    background: linear-gradient(160deg, #f0f1f4 0%, #ffffff 50%, #f5f6f8 100%);
 }
 
 html[data-theme="light"] .goal-card,
@@ -199,22 +308,6 @@ html[data-theme="dark"] {
     --Yellow: #f1fa8c;
 }
 
-html[data-theme="light"] .github-icon-light {
-    display: inline;
-}
-
-html[data-theme="light"] .github-icon-dark {
-    display: none;
-}
-
-html[data-theme="dark"] .github-icon-light {
-    display: none;
-}
-
-html[data-theme="dark"] .github-icon-dark {
-    display: inline;
-}
-
 
 main {
     width: 100vw;
@@ -222,46 +315,36 @@ main {
     overflow: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
 }
 
-.content-wrapper {
-    width: 60vw;
-    max-width: 1200px;
-}
-
-/* Hero Section */
-.hero {
-    padding: 4rem 0;
-    margin-bottom: 3rem;
-}
-
-.hero-content {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    min-height: 70vh;
-}
-
-.hero-text {
-    flex: 1;
-    text-align: left;
-}
-
-.hero-mascot {
-    flex: 0 0 auto;
+.section-band {
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-.mascot-image {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(189, 147, 249, 0.2);
-    transition: transform 0.3s ease;
+.section-band:nth-child(odd) {
+    background: transparent;
+}
+
+.section-band:nth-child(even) {
+    background: rgba(68, 71, 90, 0.2);
+}
+
+html[data-theme="light"] .section-band:nth-child(even) {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+@media (prefers-color-scheme: light) {
+    .section-band:nth-child(even) {
+        background: rgba(0, 0, 0, 0.04);
+    }
+}
+
+.section-inner {
+    width: 60vw;
+    max-width: 1200px;
 }
 
 /* Header mascot image that scales with text */
@@ -272,84 +355,6 @@ main {
     border-radius: 0.25em;
     vertical-align: middle;
     margin-right: 0.25em;
-}
-
-.mascot-image:hover {
-    transform: scale(1.05) rotate(1deg);
-}
-
-.hero-title {
-    font-size: 4rem;
-    font-weight: 700;
-    margin: 0 0 1rem 0;
-    background: linear-gradient(135deg, var(--Purple), var(--Cyan));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px rgba(189, 147, 249, 0.3);
-}
-
-.hero-miracle {
-    font-weight: 400;
-}
-
-.hero-wm {
-    font-weight: 700;
-}
-
-.hero-subtitle {
-    font-size: 1.25rem;
-    color: var(--Comment);
-    margin: 0 0 2rem 0;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-}
-
-/* Button Styles */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    border: 2px solid transparent;
-}
-
-.btn-primary {
-    background: var(--Purple);
-    color: white;
-    box-shadow: 0 4px 14px rgba(189, 147, 249, 0.3);
-}
-
-.btn-primary:hover {
-    background: var(--Pink);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(189, 147, 249, 0.4);
-    color: white;
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--Foreground);
-    border-color: var(--CurrentLine);
-}
-
-.btn-secondary:hover {
-    background: var(--CurrentLine);
-    border-color: var(--Purple);
-    color: var(--Foreground);
-    transform: translateY(-2px);
 }
 
 /* Goals Section */
@@ -520,19 +525,15 @@ only screen and (max-width:1440px) {
     }
 
     header {
-        width: 90vw !important;
+        width: 90vw;
     }
 
-    .content-wrapper {
+    .section-inner {
         width: 90vw !important;
     }
 
     .demo-grid {
         grid-template-columns: 1fr;
-    }
-
-    .hero-title {
-        font-size: 3rem;
     }
 
     .goals-grid {
@@ -543,42 +544,6 @@ only screen and (max-width:1440px) {
 @media only screen and (max-width: 768px) {
     .demo-grid {
         grid-template-columns: 1fr;
-    }
-
-    .hero-content {
-        flex-direction: column-reverse;
-        gap: 2rem;
-        min-height: auto;
-    }
-
-    .hero-text {
-        text-align: center;
-    }
-
-    .hero-actions {
-        justify-content: center;
-    }
-
-    .mascot-image {
-        max-width: 240px;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .btn {
-        width: 200px;
-        justify-content: center;
     }
 
     .goals-grid {
@@ -600,18 +565,6 @@ only screen and (max-width:1440px) {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .hero-content {
-        gap: 2rem;
-    }
-
-    .mascot-image {
-        max-width: 250px;
-    }
-
-    .hero-title {
-        font-size: 3.5rem;
-    }
-
     .goals-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -629,7 +582,7 @@ only screen and (max-width:1440px) {
     }
 }
 
-.hero, .goals-section, .links-section {
+.goals-section, .links-section {
     animation: fadeInUp 0.6s ease-out;
 }
 

@@ -10,34 +10,50 @@
         miracle
     </a>
 
-    <ul class="miracle-wm-header-list">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul class="miracle-wm-header-list" id="nav-menu">
         <li>
-            <a href="https://wiki.miracle-wm.org/latest/">Wiki</a>
+            <a href="https://wiki.miracle-wm.org/latest/" class="header-link">
+                <i class="fa-solid fa-book"></i>
+                <span>Wiki</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://docs.miracle-wm.org/miracle_plugin/" class="header-link">
+                <i class="fa-solid fa-puzzle-piece"></i>
+                <span>Plugin API</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://trello.com/b/ldzWTZDK/miracle" class="header-link">
+                <i class="fa-brands fa-trello"></i>
+                <span>Roadmap</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/miracle-wm-org/miracle-wm" class="header-link" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+            </a>
         </li>
         <li>
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                <span class="theme-toggle-icon">🌓</span>
+                <i id="theme-icon-dark" class="fa-solid fa-sun"></i>
+                <i id="theme-icon-light" class="fa-solid fa-moon"></i>
             </button>
-        </li>
-        <li>
-            <a href="https://github.com/miracle-wm-org/miracle-wm">
-                <svg width="16" height="16" class="github-icon">
-                    <image
-                        class="github-icon-dark"
-                        xlink:href="/assets/github-mark-c791e9551fe4/github-mark/github-mark-white.svg"
-                        src="/assets/github-mark-c791e9551fe4/github-mark/github-mark-white.png"
-                        width="16"
-                        height="16"
-                    />
-                    <image
-                        class="github-icon-light"
-                        xlink:href="/assets/github-mark-c791e9551fe4/github-mark/github-mark.svg"
-                        src="/assets/github-mark-c791e9551fe4/github-mark/github-mark.png"
-                        width="16"
-                        height="16"
-                    />
-                </svg>
-            </a>
         </li>
     </ul>
 </header>
+
+<script>
+    const hamburger = document.getElementById('hamburger')!;
+    const navMenu = document.getElementById('nav-menu')!;
+
+    hamburger.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+</script>
