@@ -160,6 +160,16 @@ header {
     opacity: 1;
 }
 
+.external-link-icon {
+    font-size: 0.65rem !important;
+    opacity: 0.5 !important;
+    margin-left: -0.1rem;
+}
+
+.header-link:hover .external-link-icon {
+    opacity: 0.8 !important;
+}
+
 html[data-theme="light"] .header-link:hover {
     color: var(--Cyan) !important;
     background-color: rgba(3, 102, 214, 0.08);
