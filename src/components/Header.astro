@@ -1,63 +1,68 @@
 ---
+
 ---
 
-<header>
-    <a class="miracle-wm-logo" href="/">
-        <img
-            src="/assets/clearStars.svg"
-            alt="miracle-wm mascot"
-        />
-        miracle
-    </a>
+<header class="site-header">
+    <div class="site-header-inner">
+        <a class="miracle-wm-logo" href="/">
+            <img src="/assets/clearStars.svg" alt="miracle-wm mascot" />
+            miracle-wm
+        </a>
 
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <i class="fa-solid fa-bars"></i>
-    </button>
+        <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Toggle menu"
+            aria-expanded="false">&#9776;</button
+        >
 
-    <ul class="miracle-wm-header-list" id="nav-menu">
-        <li>
-            <a href="https://wiki.miracle-wm.org/latest/" class="header-link" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-book"></i>
-                <span>Wiki</span>
-                <i class="fa-solid fa-arrow-up-right-from-square external-link-icon"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://docs.miracle-wm.org/miracle_plugin/" class="header-link" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-puzzle-piece"></i>
-                <span>Plugin API</span>
-                <i class="fa-solid fa-arrow-up-right-from-square external-link-icon"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://trello.com/b/ldzWTZDK/miracle" class="header-link" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-trello"></i>
-                <span>Roadmap</span>
-                <i class="fa-solid fa-arrow-up-right-from-square external-link-icon"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/miracle-wm-org/miracle-wm" class="header-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-github"></i>
-                <span>GitHub</span>
-                <i class="fa-solid fa-arrow-up-right-from-square external-link-icon"></i>
-            </a>
-        </li>
-        <li>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                <i id="theme-icon-dark" class="fa-solid fa-sun"></i>
-                <i id="theme-icon-light" class="fa-solid fa-moon"></i>
-            </button>
-        </li>
-    </ul>
+        <ul class="site-nav" id="nav-menu">
+            <li>
+                <a
+                    href="https://wiki.miracle-wm.org/latest/"
+                    rel="noopener noreferrer">Wiki</a
+                >
+            </li>
+            <li>
+                <a
+                    href="https://docs.miracle-wm.org/miracle_plugin/"
+                    rel="noopener noreferrer">Plugin API</a
+                >
+            </li>
+            <li>
+                <a
+                    href="https://trello.com/b/ldzWTZDK/miracle"
+                    target="_blank"
+                    rel="noopener noreferrer">Roadmap <i class="fa-solid fa-arrow-up-right-from-square"></i></a
+                >
+            </li>
+            <li>
+                <a
+                    href="https://github.com/miracle-wm-org/miracle-wm"
+                    target="_blank"
+                    rel="noopener noreferrer">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a
+                >
+            </li>
+            <li>
+                <button
+                    id="theme-toggle"
+                    class="theme-toggle"
+                    aria-label="Toggle theme"
+                >
+                    <i id="theme-icon-dark" class="fa-solid fa-sun"></i>
+                    <i id="theme-icon-light" class="fa-solid fa-moon"></i>
+                </button>
+            </li>
+        </ul>
+    </div>
 </header>
 
 <script>
-    const hamburger = document.getElementById('hamburger')!;
-    const navMenu = document.getElementById('nav-menu')!;
+    const hamburger = document.getElementById("hamburger")!;
+    const navMenu = document.getElementById("nav-menu")!;
 
-    hamburger.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('open');
-        hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.addEventListener("click", () => {
+        const isOpen = navMenu.classList.toggle("open");
+        hamburger.setAttribute("aria-expanded", String(isOpen));
     });
 </script>
