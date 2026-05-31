@@ -1,0 +1,36 @@
+---
+const plugins = [
+    {
+        name: "miracle-focus-blur-plugin",
+        description: "Blurs unfocused windows using a two-pass separable Gaussian blur shader (15px radius). Tiled and attached windows are unaffected.",
+        repo: "https://github.com/miracle-wm-org/miracle-focus-blur-plugin",
+        tags: ["visual", "effects"],
+    },
+    {
+        name: "miri-plugin",
+        description: "Scrolling window manager layout for miracle-wm. Configurable inner/outer gap spacing. Nightly WASM builds available via GitHub releases.",
+        repo: "https://github.com/miracle-wm-org/miri-plugin",
+        tags: ["layout"],
+    },
+];
+---
+
+<section>
+    <h2>Plugins</h2>
+    <p class="intro">Community plugins for miracle-wm. Build your own with the <a href="https://docs.miracle-wm.org/miracle_plugin/" target="_blank" rel="noopener noreferrer">Rust Plugin API</a>.</p>
+    <div class="plugins-grid">
+        {plugins.map(p => (
+            <div class="plugin-card">
+                <div class="plugin-card-header">
+                    <a href={p.repo} target="_blank" rel="noopener noreferrer" class="plugin-name">
+                        {p.name} <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <div class="plugin-tags">
+                        {p.tags.map(t => <span class="plugin-tag">{t}</span>)}
+                    </div>
+                </div>
+                <p class="plugin-desc">{p.description}</p>
+            </div>
+        ))}
+    </div>
+</section>
