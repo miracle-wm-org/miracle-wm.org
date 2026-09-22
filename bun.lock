@@ -7,6 +7,9 @@
       "dependencies": {
         "astro": "^4.16.18",
       },
+      "devDependencies": {
+        "sharp": "^0.33.5",
+      },
     },
   },
   "packages": {
